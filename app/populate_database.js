@@ -1,4 +1,4 @@
-const QRSchema = require('./database/models/QRCode');
+const QRSchema = require('./database/models/QRCodes');
 
 
 function fill(numfill){
@@ -12,10 +12,11 @@ function fill(numfill){
         }
         const code = QRSchema({
             AuthToken: authnum.toString(),
-            Amount: point.toString()
+            Points: point.toString()
         });
         code.save(function(err,code){
-            if(err) return console.error(err);
+            if(err) throw err
+            console.log(code)
             console.log("error creating the premade code");
         });
     }
