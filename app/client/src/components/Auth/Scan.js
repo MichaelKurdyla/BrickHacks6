@@ -26,6 +26,7 @@ class Scan extends Component {
           style={{ width: '50%' }}
         />
         <p>{this.state.result}
+        <br/>
         {typeof(this.state.result)}
         </p>
       </div>
