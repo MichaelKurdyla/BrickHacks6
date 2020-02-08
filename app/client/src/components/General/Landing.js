@@ -7,6 +7,10 @@ export default function Landing() {
       <h1>Landing Page</h1>
       <br />
       <Link to="/user/login">Login</Link>
+      <br/>
+      <Link to='/user/register'>Sign Up</Link>
+      <br/>
+      <Link to='/user/qr'>Scan code</Link>
     </div>
   );
 }
