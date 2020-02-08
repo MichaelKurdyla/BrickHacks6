@@ -25,7 +25,9 @@ class Scan extends Component {
           onScan={this.handleScan}
           style={{ width: '50%' }}
         />
-        <p>{this.state.result}</p>
+        <p>{this.state.result}
+        {typeof(this.state.result)}
+        </p>
       </div>
     )
   }
