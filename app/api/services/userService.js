@@ -1,6 +1,6 @@
 const User = require("../../database/models/User");
 const { serverError } = require("./errorService");
-const userCache = require("./cache/userCache");
+//const userCache = require("./cache/userCache");
 
 exports.create = async data => {
   try {
@@ -34,10 +34,10 @@ exports.getMany = async query => {
 exports.update = async userUpdated => {
   try {
     const user = await userUpdated.save();
-    if (user) {
-      delete user._doc.password;
-      userCache.set(user._doc._id, JSON.stringify(user._doc));
-    }
+    //if (user) {
+      //delete user._doc.password;
+      //userCache.set(user._doc._id, JSON.stringify(user._doc));
+  //  }
     return user;
   } catch (e) {
     throw serverError();

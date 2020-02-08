@@ -4,7 +4,7 @@ const keys = require("../../config/keys");
 const jwt = require("jsonwebtoken");
 
 const authenticate = async (req, res, next) => {
-  const userCache = require("../services/cache/userCache");
+//  const userCache = require("../services/cache/userCache");
   const token = req.header("Authorization");
 
   if (!token) {
@@ -18,7 +18,8 @@ const authenticate = async (req, res, next) => {
       return res.status(401).json({ msg: "Expired token" });
     }
 
-    const cachedUser = await userCache.check(decoded._id);
+    const cachedUser = null;
+    //await userCache.check(decoded._id);
 
     if (cachedUser) {
       req.user = JSON.parse(cachedUser);
@@ -27,7 +28,7 @@ const authenticate = async (req, res, next) => {
       let user = await User.findOne({ _id: decoded._id }).select("-password");
 
       if (user) {
-        userCache.set(user._doc._id, JSON.stringify(user._doc));
+        //userCache.set(user._doc._id, JSON.stringify(user._doc));
         req.user = user._doc;
         next();
       } else {
