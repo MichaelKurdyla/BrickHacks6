@@ -1,12 +1,12 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const UserSchema = new Schema({
+const QRSchema = new Schema({
   AuthToken: {
     type: String,
     required: true
   },
-  Amount: {
+  Points: {
     type: String,
     required: true
   },
@@ -19,8 +19,8 @@ const UserSchema = new Schema({
   },
   validCode: {
     type: Boolean,
-    default: false
+    default: True
   }
 });
 
-module.exports = User = mongoose.model("users", UserSchema);
+module.exports = User = mongoose.model("users", QRSchema);
