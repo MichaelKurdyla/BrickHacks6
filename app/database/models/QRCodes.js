@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const UserSchema = new Schema({
+const QRCodeSchema = new Schema({
   AuthToken: {
     type: String,
     required: true
@@ -23,4 +23,4 @@ const UserSchema = new Schema({
   }
 });
 
-module.exports = User = mongoose.model("users", UserSchema);
+module.exports = QRCode = mongoose.model("qrcodes", QRCodeSchema);
