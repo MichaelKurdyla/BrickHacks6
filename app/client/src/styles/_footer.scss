@@ -1,0 +1,15 @@
+footer.main-footer {
+  .footer-logo {
+    width: 100px;
+  }
+  .social-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    .social-icon {
+      img {
+        width: 24px;
+      }
+    }
+  }
+}

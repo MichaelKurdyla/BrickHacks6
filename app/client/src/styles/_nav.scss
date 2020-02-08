@@ -1,0 +1,28 @@
+nav.header-nav {
+  display: flex;
+  flex-direction: row;
+  .logo-container {
+    .nav-logo {
+      width: 100px;
+    }
+  }
+  .nav-items {
+    display: flex;
+    flex-direction: row;
+    margin-left: auto;
+    .nav-list {
+      list-style: none;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-end;
+    padding-inline-start: 0;
+      .nav-item {
+        .nav-link {
+          font-family: $heading;
+          
+        }
+      }
+    }
+  }
+}

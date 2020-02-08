@@ -13,8 +13,7 @@ import Landing from "../components/General/Landing";
 export default function UnAuthenticatedRoutes() {
   return (
     <Switch>
-      <Route path="/user" component={AuthContainer} />
-      <Route exact path="/" component={Landing} />
+      <Route path="/" component={AuthContainer} />
       <Route>
         <div>404</div>
       </Route>

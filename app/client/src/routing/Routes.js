@@ -15,7 +15,7 @@ import PublicRoutes from "./PublicRoutes";
 const Routes = () => {
   return (
     <Router>
-      <div className="container">
+      <div className="">
         <Switch>
           <PrivateRoute path="/home" component={AuthenticatedRoutes} />
           <Route path="/public" component={PublicRoutes} />

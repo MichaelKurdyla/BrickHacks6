@@ -64,7 +64,7 @@ export const resetPassword = async cmp => {
   try {
     let input = { token, password, confirm };
     await axios.put("/api/user/reset-password", input);
-    window.location.href = "/user/login";
+    window.location.href = "/login";
   } catch (e) {
     cmp.setState({ errors: e.response.data.data, loading: false });
   }

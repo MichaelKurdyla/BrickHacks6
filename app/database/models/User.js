@@ -33,6 +33,28 @@ const UserSchema = new Schema({
       type: Boolean,
       default: false
     }
+  },
+  points: {
+    balance: {
+      type: Number,
+      default: 0
+    },
+    purchases: [
+      {
+        qr_code: {
+          type: String,
+          required: true
+        },
+        returned: {
+          type: Boolean,
+          required: true
+        },
+        point_value: {
+          type: Number,
+          required: true
+        }
+      }
+    ]
   }
 });
 
