@@ -12,7 +12,8 @@ class Scan extends Component {
 
       this.setState({
         result: data,
-        auth: data.slice(-2)
+        auth: data.slice(7),
+        points: data.slice(-3)
       })
     }
   }
@@ -28,9 +29,12 @@ class Scan extends Component {
           onScan={this.handleScan}
           style={{ width: '50%' }}
         />
-        <p>{this.state.result}
-        <br/>
+        <p>
+          {this.state.result}
+          <br />
           {this.state.auth}
+          <br/>
+          {this.state.points}
         </p>
       </div>
     )
