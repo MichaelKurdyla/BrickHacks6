@@ -14,6 +14,9 @@ const AuthenticatedRoutes = props => {
       <Route exact path="/home">
         <div>auth homepage</div>
       </Route>
+      <Route exact path="/scan">
+        <div>scan page</div>
+      </Route>
       <Route>
         <div>404</div>
       </Route>

@@ -19,6 +19,7 @@ const Routes = () => {
         <Switch>
           <PrivateRoute path="/home" component={AuthenticatedRoutes} />
           <Route path="/public" component={PublicRoutes} />
+          <PrivateRoute path="/scan" component={AuthenticatedRoutes} />
           <AuthProtected path="/" component={UnAuthenticatedRoutes} />
         </Switch>
       </div>
