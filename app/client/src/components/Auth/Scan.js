@@ -3,13 +3,16 @@ import QrReader from 'react-qr-reader'
 
 class Scan extends Component {
   state = {
-    result: 'No result'
+    result: 'No result',
+    auth: 'None',
   }
 
   handleScan = data => {
     if (data) {
+
       this.setState({
-        result: data
+        result: data,
+        auth: data.slice(-2)
       })
     }
   }
@@ -27,7 +30,7 @@ class Scan extends Component {
         />
         <p>{this.state.result}
         <br/>
-        {typeof(this.state.result)}
+          {this.state.auth}
         </p>
       </div>
     )
