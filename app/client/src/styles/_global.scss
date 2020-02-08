@@ -25,7 +25,15 @@ body {
     margin-bottom: 0;
   }
 
-
+  .fill-page {
+    height: calc(100vh - 100px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    .form-container {
+      transform: translateY(-50px);
+    }
+  }
 
   margin: 0;
   .row {

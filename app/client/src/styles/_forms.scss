@@ -1,0 +1,18 @@
+.form-container {
+  width: 300px;
+  form {
+    display: flex;
+    flex-direction: column;
+    .form-input {
+
+    }
+    .form-submit-container {
+      button {
+        border: none;
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+  }
+}

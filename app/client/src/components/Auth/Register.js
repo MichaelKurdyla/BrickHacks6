@@ -4,6 +4,8 @@ import React, { Component } from "react";
 import LoadingContainer from "../General/Loading";
 import FormError from "../General/Forms/FormError";
 import { FormInput, FormSubmit } from "../General/Forms/FormInputs";
+import TextField from '@material-ui/core/TextField';
+import Nav from '../General/Nav';
 
 //actions
 import { register } from "./api";
@@ -35,50 +37,72 @@ class Register extends Component {
   render() {
     const { email, name, password, confirm, errors, loading } = this.state;
     return (
-      <div className="form-container">
-        <form>
-          <div className="form-title">
-            <h1>Register</h1>
+      <div className="page">
+        <Nav />
+        <div className='container fill-page'>
+          <div className="row">
+            <div className="col-sm-12">
+              <div className="form-container mx-auto">
+                <form>
+                  <div className="form-title">
+                    <h1>Register</h1>
+                  </div>
+                  <LoadingContainer loading={loading} />
+                  <FormError errors={errors ? errors.err : null} />
+                  <TextField
+                    id="email-field"
+                    label="Email"
+                    className='form-input'
+                    value={email}
+                    name="email"
+                    onChange={this.onChange}
+                    margin="normal"
+                    error={errors ? errors.email : null}
+                    variant="outlined"
+                  />
+                  <TextField
+                    id="name-field"
+                    label="Name"
+                    className='form-input'
+                    value={name}
+                    name="name"
+                    onChange={this.onChange}
+                    margin="normal"
+                    error={errors ? errors.name : null}
+                    variant="outlined"
+                  />
+                  <TextField
+                    id="password-field"
+                    label="Password"
+                    className='form-input'
+                    value={password}
+                    name="password"
+                    type="password"
+                    onChange={this.onChange}
+                    margin="normal"
+                    variant="outlined"
+                  />
+                  <TextField
+                    id="confirm-field"
+                    label="Confirm"
+                    className='form-input'
+                    value={confirm}
+                    name="confirm"
+                    type="password"
+                    onChange={this.onChange}
+                    margin="normal"
+                    variant="outlined"
+                  />
+                  <FormSubmit
+                    text="register"
+                    disabled={loading}
+                    onClick={this.register}
+                  />
+                </form>
+              </div>
+            </div>
           </div>
-          <LoadingContainer loading={loading} />
-          <FormError errors={errors ? errors.err : null} />
-          <FormInput
-            onChange={this.onChange}
-            value={email}
-            name="email"
-            type="text"
-            placeholder="email"
-            error={errors ? errors.email : null}
-          />
-          <FormInput
-            onChange={this.onChange}
-            value={name}
-            name="name"
-            type="text"
-            placeholder="name"
-            error={errors ? errors.name : null}
-          />
-          <FormInput
-            onChange={this.onChange}
-            value={password}
-            name="password"
-            type="password"
-            placeholder="password"
-            error={errors ? errors.password : null}
-          />
-          <FormInput
-            onChange={this.onChange}
-            value={confirm}
-            name="confirm"
-            type="password"
-            placeholder="confirm"
-          />
-          <FormSubmit
-            text="register"
-            disabled={loading}
-            onClick={this.register}
-          />
-        </form>
+        </div>
       </div>
     );
   }
