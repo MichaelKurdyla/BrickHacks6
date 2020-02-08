@@ -14,6 +14,7 @@ export default function UnAuthenticatedRoutes() {
   return (
     <Switch>
       <Route path="/user" component={AuthContainer} />
+      <Route path="/scan" component={AuthContainer} />
       <Route exact path="/" component={Landing} />
       <Route>
         <div>404</div>
