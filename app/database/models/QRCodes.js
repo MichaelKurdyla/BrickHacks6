@@ -6,7 +6,7 @@ const QRCodeSchema = new Schema({
     type: String,
     required: true
   },
-  Amount: {
+  Points: {
     type: String,
     required: true
   },
@@ -19,7 +19,7 @@ const QRCodeSchema = new Schema({
   },
   validCode: {
     type: Boolean,
-    default: false
+    default: True
   }
 });
 
