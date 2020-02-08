@@ -6,9 +6,9 @@ function fill(numfill){
     for(i = 0;i < numfill; i++){
         var authnum = i; 
         if(i%2 ==0){
-            var point = 050
+            var point = 050;
         }else{
-           var point = 100
+           var point = 100;
         }
         const code = QRSchema({
             AuthToken: authnum.toString(),
