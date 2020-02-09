@@ -26,7 +26,8 @@ class Scan extends Component {
   }
   render() {
     return (
-      <div>
+      <div align="center">
+      <h2>Redeem your Points!</h2>
         <QrReader
           delay={300}
           onError={this.handleError}
