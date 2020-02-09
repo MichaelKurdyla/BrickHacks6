@@ -32,6 +32,7 @@ const AuthenticatedRoutes = props => {
         render={() => (
           <AuthenticatedContainer
             userName={user.name}
+            phone={user.phone}
             points={user.points}
             component={<Scan />}
           />

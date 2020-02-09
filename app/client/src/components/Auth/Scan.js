@@ -12,7 +12,7 @@ class Scan extends Component {
       this.setState({
         result: data,
       })
-      axios.post('/api/validation/qr', {AuthToken: data})
+      axios.post('/api/validation/qr', {AuthToken: data, name: this.props.name, phone: this.props.phone})
       .then((res) => {
         console.log(res)
       })
