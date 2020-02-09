@@ -1,27 +1,32 @@
-const QRSchema = require('./database/models/QRCode');
+const QRSchema = require('./database/models/QRCodes');
 
 
-function fill(numfill){
-    i = 0
-    for(i = 0;i < numfill; i++){
-        var authnum = i; 
+  
+
+function fill(times){
+    i = 0;
+    console.log("Entering loop")
+    for(i = 0;i < times; i++){
+        var authnum = (Math.random()*1000000000) + 8999999999;
         if(i%2 ==0){
             var point = 050
         }else{
            var point = 100
         }
+        console.log(Math.floor(authnum).toString())
+        
+        console.log("creating db object and assigning " + point.toString())
         const code = QRSchema({
             AuthToken: authnum.toString(),
-            Amount: point.toString()
+            Points: point.toString()
         });
         code.save(function(err,code){
-            if(err) return console.error(err);
-            console.log("error creating the premade code");
+            if(err) throw err;
+            console.log(code)
         });
+        
     }
+
 }
 
-fill(5);
-
-
-
+fill(50);

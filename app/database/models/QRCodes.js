@@ -19,7 +19,7 @@ const QRCodeSchema = new Schema({
   },
   validCode: {
     type: Boolean,
-    default: True
+    default: true
   }
 });
 
