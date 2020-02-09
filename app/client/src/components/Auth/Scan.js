@@ -12,7 +12,7 @@ class Scan extends Component {
       this.setState({
         result: data,
       })
-
+      axios.push('/api/test')
     }
   }
   handleError = err => {
