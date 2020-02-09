@@ -1,0 +1,31 @@
+.returns-page {
+  .purchase {
+    display: flex;
+    width: 400px;
+    padding: 16px;
+    .info {
+      margin-right: auto;
+      h3 {
+        font-weight: 600;
+      }
+      p {
+        font-size: 14px;
+        margin-bottom: 0;
+      }
+    }
+    .redeem-button {
+      display: flex;
+      align-items: center;
+      &.returned {
+        p {
+          color: $dark;
+          margin-bottom: 0;
+        }
+      }
+      button {
+        text-transform: uppercase;
+        color: $green;
+      }
+    }
+  }
+}

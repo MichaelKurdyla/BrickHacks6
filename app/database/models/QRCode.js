@@ -20,6 +20,10 @@ const QRCodeSchema = new Schema({
   validCode: {
     type: Boolean,
     default: true
+  },
+  returned: {
+    type: Boolean,
+    default: false
   }
 });
 

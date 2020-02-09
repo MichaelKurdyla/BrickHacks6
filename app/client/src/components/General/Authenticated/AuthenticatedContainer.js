@@ -29,7 +29,8 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
-
+import ShopIcon from '@material-ui/icons/Shop';
+import RedeemIcon from '@material-ui/icons/Redeem';
 const drawerWidth = 240;
 
 const useStyles = makeStyles(theme => ({
@@ -144,10 +145,10 @@ export default function AuthenticatedContainer(props) {
         </div>
         <Divider />
         <List>
-          {[{text: "Home", link: "/home/"}, {text: "Scan", link: "/home/scan"}].map((link, index) => (
+          {[{text: "Home", link: "/home/"}, {text: "Scan", link: "/home/scan"}, {text: 'Returns', link: "/home/returns"}, {text: 'Purchases', link: "/home/purchases"}].map((link, index) => (
             <Link to={link.link} key={link.text}>
               <ListItem button>
-                <ListItemIcon>{index % 2 === 0 ? <HomeIcon /> : <CameraIcon />}</ListItemIcon>
+                <ListItemIcon>{index % 4 === 0 ? <HomeIcon /> : index % 4 === 1 ? <CameraIcon /> : index % 4 === 2 ? <ShopIcon /> : <RedeemIcon />}</ListItemIcon>
                 <ListItemText primary={link.text} />
               </ListItem>
             </Link>
