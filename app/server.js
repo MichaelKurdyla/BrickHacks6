@@ -60,8 +60,8 @@ function fill(times){
 
         QRCode.toFile('./QrCodes/' + Math.floor(authnum).toString() + '.png', Math.floor(authnum).toString(), {
             color: {
-              dark: '#00F',  // Blue dots
-              light: '#0000' // Transparent background
+              dark: '#000',  // Blue dots
+              light: '#fff' // Transparent background
             }
           }, function (err) {
             if (err) throw err
@@ -70,7 +70,7 @@ function fill(times){
 
         console.log("creating db object and assigning " + point.toString())
         const code = QRSchema({
-            AuthToken: authnum.toString(),
+            AuthToken: Math.floor(authnum).toString(),
             Points: point
         });
         code.save(function(err,code){
