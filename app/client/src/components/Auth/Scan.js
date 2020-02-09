@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import QrReader from 'react-qr-reader'
-import { Mongoose } from 'mongoose'
-import db from Mongoose
-
+import axios from 'axios';
 class Scan extends Component {
   state = {
     result: 'No result',
@@ -11,10 +9,10 @@ class Scan extends Component {
 
   handleScan = data => {
     if (data) {
-
       this.setState({
         result: data,
       })
+
     }
   }
   handleError = err => {
@@ -37,22 +35,6 @@ class Scan extends Component {
   }
 }
 
-function Validate() {
-  if(QRSchema.AuthToken.find(this.state.result).count() > 0) {
-    let currentResults = QRSchema.AuthToken.find(this.state.result)
-    if (currentResults.validCode) {
-      currentResults.validCode = False;
-      currentResults.whenUsed = date.now();
-    }  
-    else{
-      {"This code has been scanned already"}
-    }
-  }
-  else {
-    {"This is not a valid QR code"}
-  }
-  
-}
 
 
 export default Scan;

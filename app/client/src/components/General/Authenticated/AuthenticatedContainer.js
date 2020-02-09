@@ -4,6 +4,7 @@ import Nav from '../Nav';
 import Merch from '../../../assets/bg-home-video.jpg';
 import Green from '../../../assets/green-min.jpg';
 import Footer from '../Footer';
+import Scan from '../../Auth/Scan';
 class AuthenticatedContainer extends Component {
   constructor() {
     super()
@@ -18,6 +19,7 @@ class AuthenticatedContainer extends Component {
         <div className="side-nav">
 
         </div>
+        <Scan />
       </div>
     )
   }
