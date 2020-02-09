@@ -8,11 +8,12 @@ class Scan extends Component {
   }
 
   handleScan = data => {
+    console.log(this.props)
     if (data) {
       this.setState({
         result: data,
       })
-      axios.post('/api/validation/qr', {AuthToken: data})
+      axios.post('/api/validation/qr', {AuthToken: data, name: this.props.name, phone: this.props.phone})
       .then((res) => {
         console.log(res)
       })
@@ -26,7 +27,8 @@ class Scan extends Component {
   }
   render() {
     return (
-      <div>
+      <div align="center">
+      <h2>Redeem your Points!</h2>
         <QrReader
           delay={300}
           onError={this.handleError}

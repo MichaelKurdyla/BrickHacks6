@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import AuthenticatedContainer from '../components/General/Authenticated/AuthenticatedContainer';
 import Home from '../components/General/Authenticated/Home';
 import Scan from '../components/Auth/Scan';
+import Logout from '../components/General/Authenticated/Logout';
 /**
  * @private true
  * @route   /home/*
@@ -31,8 +32,20 @@ const AuthenticatedRoutes = props => {
         render={() => (
           <AuthenticatedContainer
             userName={user.name}
+            phone={user.phone}
             points={user.points}
             component={<Scan />}
+          />
+        )}
+      />
+      <Route
+        exact
+        path="/home/logout"
+        render={() => (
+          <AuthenticatedContainer
+          userName={user.name}
+          points={user.points}
+            component={<Logout />}
           />
         )}
       />

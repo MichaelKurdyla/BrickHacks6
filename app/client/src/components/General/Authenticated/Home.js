@@ -16,7 +16,7 @@ export default function Home() {
   return (
     <div className="homepage">
       <h1>Corona Rewards</h1>
-      <div className="rewards-grid">
+      <div className="rewards-grid" >
         <div className="custom-card">
           <img src={Green} width="400" height="250" />
           <div className="content">
