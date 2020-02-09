@@ -8,6 +8,7 @@ class Scan extends Component {
   }
 
   handleScan = data => {
+    console.log(this.props)
     if (data) {
       this.setState({
         result: data,
