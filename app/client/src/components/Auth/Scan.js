@@ -32,6 +32,7 @@ class Scan extends Component {
   }
   render() {
     return (
+<<<<<<< HEAD
       <div className="container">
         <div className="row">
           <div className="col-sm-12">
@@ -47,6 +48,19 @@ class Scan extends Component {
             </div>
           </div>
         </div>
+=======
+      <div align="center">
+      <h2>Redeem your Points!</h2>
+        <QrReader
+          delay={300}
+          onError={this.handleError}
+          onScan={this.handleScan}
+          style={{ width: '50%' }}
+        />
+        <p>
+          {this.state.result}
+        </p>
+>>>>>>> cc673e5387914b827168fb8fbe72f6702c148c48
       </div>
 
     )
