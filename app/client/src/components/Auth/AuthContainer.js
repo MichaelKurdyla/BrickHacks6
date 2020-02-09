@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import Landing from "../General/Landing";
 import Login from "./Login";
 import Register from "./Register";
+import Scan from "./Scan";
 import ForgotPassword from "./ForgotPassword";
 import ResetPassword from "./ResetPassword";
 
@@ -15,6 +16,7 @@ export default function AuthContainer(props) {
         <Route exact path="/" component={Landing} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/register" component={Register} />
+        <Route exact path="/scan" component={Scan} />
         <Route exact path="/forgot-password" component={ForgotPassword} />
         <Route
           exact

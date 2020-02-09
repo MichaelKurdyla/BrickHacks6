@@ -1,11 +1,12 @@
-import React, { Component } from 'react'
-import QrReader from 'react-qr-reader'
-import Validate from '../../../../../api/validate/validateQR.js'
+import React, { Component } from 'react';
+import QrReader from 'react-qr-reader';
+import Nav from '../General/Nav';
+//import Validate from '../../../../api/validation/validateQR';
+import axios from 'axios';
 
 class Scan extends Component {
   state = {
-    result: 'No result',
-    auth: 'None',
+    result: 'No result'
   }
 
   handleScan = data => {
@@ -21,18 +22,19 @@ class Scan extends Component {
   }
   render() {
     return (
-      <div>
-        <QrReader
-          delay={300}
-          onError={this.handleError}
-          onScan={this.handleScan}
-          style={{ width: '50%' }}
-        />
-        <p>
-          {this.state.result}
-          <br />
-          {Validate()}
-        </p>
+      <div className="page">
+        <Nav />
+        <div>
+          <QrReader
+            delay={300}
+            onError={this.handleError}
+            onScan={this.handleScan}
+            style={{ width: '50%' }}
+          />
+          <p>
+            {this.state.result}
+          </p>
+        </div>
       </div>
     )
   }
