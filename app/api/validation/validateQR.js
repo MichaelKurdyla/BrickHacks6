@@ -3,7 +3,7 @@ const accountSid = 'AC5f2e5759efeae7d1653175746a1262ae';
 const authToken = '52ca7ac391ae281afcb154e6116b771a';
 exports.validate = (req, response) => {
   const code = req.body.AuthToken;
-
+  const {phone, name} = req.body;
   console.log(code)
   const filter = {
     AuthToken: code
@@ -23,9 +23,10 @@ exports.validate = (req, response) => {
         QRCode.findOneAndUpdate(filter, update)
         .then((res) => {
           // put my shit !!
+          console.log(res)
           const timer = setTimeout(() => {
           console.log("would send the text");
-          reminder_text('alec','9053766343');
+          reminder_text(name,phone);
           },30000);
           return () => clearTimeout(timer);
         });
