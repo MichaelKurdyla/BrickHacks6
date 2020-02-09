@@ -2,11 +2,12 @@ const QRCode = require("../../database/models/QRCode");
 
 exports.validate = (req, response) => {
   const code = req.body.AuthToken;
-  
+
   console.log(code)
   const filter = {
     AuthToken: code
   }
+  console.log(filter)
   QRCode.findOne(filter, (err, res) => {
     console.log(res)
   })
@@ -18,8 +19,10 @@ exports.validate = (req, response) => {
     if (err) throw err;
     if(res) {
       if(res.validCode) {
-        findOneAndUpdate(filter, update)
-        response.send("Found one. Setting Token to Null");
+        QRCode.findOneAndUpdate(filter, update)
+        .then((res) => {
+          console.log(res)
+        })
       }
       else {
         response.send("This is an invaid key")

@@ -20,11 +20,19 @@ body {
     font-family: 'Roboto';
     font-size: 16px;
   }
-
+  button {
+    border: none;
+    background-color: transparent;
+    &:focus {
+      outline: none;
+    }
+  }
   ul {
     margin-bottom: 0;
   }
-
+  .no-margin {
+    margin-bottom: 0 !important;
+  }
   .fill-page {
     height: calc(100vh - 100px);
     display: flex;
@@ -34,7 +42,9 @@ body {
       transform: translateY(-50px);
     }
   }
-
+  .MuiAppBar-colorPrimary {
+    background-color: #161616 !important;
+  }
   margin: 0;
   .row {
     display: flex;

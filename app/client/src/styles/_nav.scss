@@ -20,9 +20,24 @@ nav.header-nav {
       .nav-item {
         .nav-link {
           font-family: $heading;
-          
+
         }
       }
     }
   }
+}
+.toolbar-menu {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+  h3 {
+    margin: 0;
+    text-transform: uppercase;
+  }
+}
+.drawerHeaderName {
+  display: flex;
+  width: 100%;
+  padding: 0 12px;
+  text-transform: uppercase;
 }
