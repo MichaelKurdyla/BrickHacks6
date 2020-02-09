@@ -1,8 +1,5 @@
 const QRSchema = require('./database/models/QRCodes');
 
-
-
-
 function fill(times){
     
     i = 0;
@@ -15,6 +12,16 @@ function fill(times){
            var point = 100
         }
         console.log(Math.floor(authnum).toString())
+
+        QRCode.toFile('./QrCodes/' + Math.floor(authnum).toString() + '.png', Math.floor(authnum).toString(), {
+            color: {
+              dark: '#00F',  // Blue dots
+              light: '#0000' // Transparent background
+            }
+          }, function (err) {
+            if (err) throw err
+            console.log('done');
+          });
 
         console.log("creating db object and assigning " + point.toString())
         const code = QRSchema({
