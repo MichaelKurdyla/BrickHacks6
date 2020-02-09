@@ -6,6 +6,8 @@ import Home from '../components/General/Authenticated/Home';
 import Scan from '../components/Auth/Scan';
 import Logout from '../components/General/Authenticated/Logout';
 import Returns from '../components/General/Authenticated/Returns';
+import Purchases from '../components/General/Authenticated/Purchases';
+
 /**
  * @private true
  * @route   /home/*
@@ -13,6 +15,7 @@ import Returns from '../components/General/Authenticated/Returns';
  */
 const AuthenticatedRoutes = props => {
   const { user } = props;
+  console.log(user)
   return (
     <Switch>
       <Route
@@ -22,7 +25,10 @@ const AuthenticatedRoutes = props => {
           <AuthenticatedContainer
             userName={user.name}
             points={user.points}
-            component={<Home />}
+            component={<Home
+              userID={user._id}
+
+              />}
           />
         )}
       />
@@ -65,11 +71,12 @@ const AuthenticatedRoutes = props => {
           <AuthenticatedContainer
             userName={user.name}
             points={user.points}
-            component={<Scan
+            component={<Purchases
               userName={user.name}
               phone={user.phone}
               points={user.points}
               userID={user._id}
+              purchases={user.purchases}
               />}
           />
         )}

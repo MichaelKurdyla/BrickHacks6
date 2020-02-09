@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import Green from '../../../assets/green-min.jpg';
 import Cap from '../../../assets/10Dolla.png';
 import Slippers from '../../../assets/12Dolla.png';
@@ -12,7 +13,21 @@ import MEC from '../../../assets/MEC.png';
 import pata from '../../../assets/patagonia.png';
 import tree from '../../../assets/10tree.png';
 
-export default function Home() {
+export default function Home(props) {
+  let message = '';
+  let popup = 0;
+
+  const buyItem = (name, userID, price) => {
+    const date = new Date();
+    axios.post('/api/validation/purchase', {name: name, date: date, id: userID, price: price})
+    .then((res, err) => {
+      console.log(err)
+      console.log(res);
+      window.location.reload(true);
+
+    })
+  }
+
   return (
     <div className="homepage">
       <h1>Corona Rewards</h1>
@@ -28,7 +43,7 @@ export default function Home() {
               <p>15 Points</p>
             </div>
             <div className="button">
-              <button>Buy</button>
+              <button onClick={() => buyItem("Plant a tree", props.userID, 15)}>Buy</button>
             </div>
           </div>
         </div>
@@ -176,7 +191,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        
+
         <div className="custom-card">
           <img src={pata} width="400" height="350" />
           <div className="content">

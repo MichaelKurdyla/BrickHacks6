@@ -43,8 +43,19 @@ const UserSchema = new Schema({
       type: Number,
       default: 0
     },
-    purchases: {type: [QRCode]}
-  }
+    purchases: {type: [QRCode]},
+  },
+  purchases: [
+    {
+      name: {
+        type: String
+      },
+      date: {
+        type: Date,
+        default: Date.now()
+      }
+    }
+  ]
 });
 
 module.exports = User = mongoose.model("users", UserSchema);

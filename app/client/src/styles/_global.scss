@@ -33,6 +33,12 @@ body {
   ul {
     margin-bottom: 0;
   }
+  .snap-code {
+    .snap-img {
+      width: 100px;
+      margin-bottom: 32px;
+    }
+  }
   .scanner-container {
     margin: auto;
     display: flex;

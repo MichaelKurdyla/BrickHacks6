@@ -43,7 +43,7 @@ app.use("/api", api);
 const QRSchema = require('./database/models/QRCode');
 var QRCode = require('qrcode')
 
-      
+
 /*
 function fill(times){
   QRSchema.remove({}, () => {
@@ -81,9 +81,10 @@ function fill(times){
     }
 
 });
-}fill(50);
-*/
+}
+fill(50);
 
+*/
 
 
 const PORT = process.env.PORT || 5000;

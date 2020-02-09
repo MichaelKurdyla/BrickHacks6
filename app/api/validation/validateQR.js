@@ -3,6 +3,31 @@ const User = require("../../database/models/User");
 
 const accountSid = 'AC5f2e5759efeae7d1653175746a1262ae';
 const authToken = '52ca7ac391ae281afcb154e6116b771a';
+
+exports.purchase = (req, res) => {
+  const {name, date, id, price} = req.body;
+  User.findOne({_id: id}, (err, user) => {
+    if (err) throw err;
+    user.purchases.push({name: name, date: date})
+    user.points.balance = parseInt(user.points.balance) - parseInt(price);
+    user.save()
+    res.status(200).json({ message: "Your purchase was successful" })
+
+  })
+}
+
+
+exports.return = (req, res) => {
+  const {id, uid} = req.body;
+  User.findOne({_id: uid}, (err, user) => {
+    if (err) throw err;
+    const pid = user.points.purchases.findIndex((purchase) => purchase._id = id);
+    user.points.purchases[pid].returned = true;
+    user.points.balance = parseInt(user.points.balance) + parseInt(user.points.purchases[pid].Points);
+    user.save()
+
+  })
+}
 exports.validate = (req, response) => {
   const code = req.body.AuthToken;
   const {phone, name, id} = req.body;

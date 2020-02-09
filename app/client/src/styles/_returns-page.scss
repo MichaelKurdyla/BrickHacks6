@@ -29,3 +29,13 @@
     }
   }
 }
+
+.purchases-page {
+  .purchase {
+    display: flex;
+    flex-direction:  column;
+    p {
+      font-size: 14px;
+    }
+  }
+}

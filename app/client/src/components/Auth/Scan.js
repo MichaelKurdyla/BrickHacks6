@@ -21,6 +21,11 @@ class Scan extends Component {
       axios.post('/api/validation/qr', {id: this.props.userID, AuthToken: data, name: this.props.userName, phone: this.props.phone})
       .then((res) => {
         this.setState({response: res.data.message})
+        const timer = setTimeout(() => {
+          window.location.reload(true);
+
+        }, 2000);
+
       })
       .catch((err) => {
         console.log(err)

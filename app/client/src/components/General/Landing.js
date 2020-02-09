@@ -82,27 +82,22 @@ export default function Landing() {
           </div>
         </div>
       </section>
-      <section className="img-info">
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-6 text-center">
-              <img className='col-5-img' src={SnapCode} />
-            </div>
-            <div className="col-lg-6 my-auto">
-              <h2>Scan our Snapchat code for a unique Lens</h2>
-              <p>Bring the fun of Corona with you where ever you go with our custom SnapChat lens. </p>
-              <div className="row">
-                <div className="col-sm-6">
-                  <div className="feature">
-                    <h3>Easy to get</h3>
-                    <p>Just scan this code in the Snapchat app to get the lens for 48 hours!</p>
-                  </div>
-                </div>
-              </div>
-            </div>
+      <section className="snap-code">
+      <div className="container">
+        <div className="row">
+        <div className="col-lg-3 text-center"></div>
+
+          <div className="col-lg-6 text-center">
+            <img className='snap-img' src={SnapCode} />
+            <h2>Scan our Snapchat code for a unique Lens</h2>
+            <p>Bring the fun of Corona with you where ever you go with our custom SnapChat lens. Just scan this code in the Snapchat app to get the lens for 48 hours!</p>
           </div>
+          <div className="col-lg-3 text-center"></div>
+
         </div>
+      </div>
       </section>
+
       <Footer />
     </div>
   );
