@@ -161,7 +161,7 @@ export default function AuthenticatedContainer(props) {
       <main
         className={clsx(classes.content, {
           [classes.contentShift]: open,
-        })}
+        }) + " main-content"}
       >
         <div className={classes.drawerHeader} />
         {props.component}

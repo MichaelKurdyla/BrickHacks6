@@ -1,7 +1,7 @@
 const QRSchema = require('./database/models/QRCodes');
 
 
-  
+
 
 function fill(times){
     i = 0;
@@ -14,17 +14,17 @@ function fill(times){
            var point = 100
         }
         console.log(Math.floor(authnum).toString())
-        
+
         console.log("creating db object and assigning " + point.toString())
         const code = QRSchema({
             AuthToken: authnum.toString(),
-            Points: point.toString()
+            Points: point
         });
         code.save(function(err,code){
             if(err) throw err;
             console.log(code)
         });
-        
+
     }
 
 }

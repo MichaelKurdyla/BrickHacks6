@@ -2,15 +2,27 @@
   margin: 32px 0;
   display: grid;
   grid-gap: 32px 32px;
-  grid-template-columns: repeat(3, 320px);
-  @media only screen and (max-width: 1120px) {
+  grid-template-columns: repeat(3, 400px);
+  @media only screen and (max-width: 1540px) {
+    grid-template-columns: repeat(3, 360px);
+  }
+  @media only screen and (max-width: 1420px) {
+    grid-template-columns: repeat(3, 320px);
+  }
+  @media only screen and (max-width: 1280px) {
+    grid-template-columns: repeat(2, 360px);
+  }
+  @media only screen and (max-width: 1080px) {
     grid-template-columns: repeat(2, 320px);
   }
-  @media only screen and (max-width: 768px) {
+
+  @media only screen and (max-width: 992px) {
     grid-template-columns: repeat(1, 320px);
   }
   .custom-card {
     border-radius: 5px;
+    display: flex;
+    flex-direction: column;
     box-shadow: 1px 1px 20px rgba(0,0,0,0.3);
     img {
       border-radius: 5px 5px 0 0;
@@ -26,6 +38,7 @@
       p {
         margin-bottom: 0;
       }
+      margin-bottom: auto;
     }
     .pricing {
       display: flex;

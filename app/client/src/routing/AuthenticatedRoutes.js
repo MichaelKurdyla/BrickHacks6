@@ -12,7 +12,6 @@ import Logout from '../components/General/Authenticated/Logout';
  */
 const AuthenticatedRoutes = props => {
   const { user } = props;
-  console.log(user);
   return (
     <Switch>
       <Route
@@ -32,9 +31,13 @@ const AuthenticatedRoutes = props => {
         render={() => (
           <AuthenticatedContainer
             userName={user.name}
-            phone={user.phone}
-            points={user.points}
-            component={<Scan />}
+            points={user.points}         
+            component={<Scan
+              userName={user.name}
+              phone={user.phone}
+              points={user.points}
+              userID={user._id}
+              />}
           />
         )}
       />
@@ -43,8 +46,8 @@ const AuthenticatedRoutes = props => {
         path="/home/logout"
         render={() => (
           <AuthenticatedContainer
-          userName={user.name}
-          points={user.points}
+            userName={user.name}
+            points={user.points}
             component={<Logout />}
           />
         )}

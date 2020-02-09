@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-
+const QRCode = require('./QRCode').schema;
 const UserSchema = new Schema({
   email: {
     type: String,
@@ -43,22 +43,7 @@ const UserSchema = new Schema({
       type: Number,
       default: 0
     },
-    purchases: [
-      {
-        qr_code: {
-          type: String,
-          required: true
-        },
-        returned: {
-          type: Boolean,
-          required: true
-        },
-        point_value: {
-          type: Number,
-          required: true
-        }
-      }
-    ]
+    purchases: {type: [QRCode]}
   }
 });
 
