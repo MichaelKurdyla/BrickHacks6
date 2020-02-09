@@ -4,6 +4,7 @@ const QRSchema = require('./database/models/QRCodes');
 
 
 function fill(times){
+    
     i = 0;
     console.log("Entering loop")
     for(i = 0;i < times; i++){

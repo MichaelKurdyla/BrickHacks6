@@ -5,6 +5,7 @@ import AuthenticatedContainer from '../components/General/Authenticated/Authenti
 import Home from '../components/General/Authenticated/Home';
 import Scan from '../components/Auth/Scan';
 import Logout from '../components/General/Authenticated/Logout';
+import Returns from '../components/General/Authenticated/Returns';
 /**
  * @private true
  * @route   /home/*
@@ -31,7 +32,39 @@ const AuthenticatedRoutes = props => {
         render={() => (
           <AuthenticatedContainer
             userName={user.name}
-            points={user.points}         
+            points={user.points}
+            component={<Scan
+              userName={user.name}
+              phone={user.phone}
+              points={user.points}
+              userID={user._id}
+              />}
+          />
+        )}
+      />
+      <Route
+        exact
+        path="/home/returns"
+        render={() => (
+          <AuthenticatedContainer
+            userName={user.name}
+            points={user.points}
+            component={<Returns
+              userName={user.name}
+              phone={user.phone}
+              points={user.points}
+              userID={user._id}
+              />}
+          />
+        )}
+      />
+      <Route
+        exact
+        path="/home/purchases"
+        render={() => (
+          <AuthenticatedContainer
+            userName={user.name}
+            points={user.points}
             component={<Scan
               userName={user.name}
               phone={user.phone}
