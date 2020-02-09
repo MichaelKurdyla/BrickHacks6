@@ -1,17 +1,15 @@
 const QRCode = require("../../database/models/QRCode");
+const User = require("../../database/models/User");
+
 const accountSid = 'AC5f2e5759efeae7d1653175746a1262ae';
 const authToken = '52ca7ac391ae281afcb154e6116b771a';
 exports.validate = (req, response) => {
   const code = req.body.AuthToken;
-  const {phone, name} = req.body;
+  const {phone, name, id} = req.body;
   console.log(code)
   const filter = {
     AuthToken: code
   }
-  console.log(filter)
-  QRCode.findOne(filter, (err, res) => {
-    console.log(res)
-  })
   const update = {
     validCode: false,
     whenUsed: new Date()
@@ -22,20 +20,25 @@ exports.validate = (req, response) => {
       if(res.validCode) {
         QRCode.findOneAndUpdate(filter, update)
         .then((res) => {
-          // put my shit !!
-          console.log(res)
+          User.findOne({_id: id}, (err, user) => {
+            if(err) throw err;
+            user.points.balance = parseInt(user.points.balance) + parseInt(res.Points);
+            user.points.purchases.push(res);
+            user.save();
+          })
           const timer = setTimeout(() => {
-          console.log("would send the text");
           reminder_text(name,phone);
-          },30000);
-          return () => clearTimeout(timer);
+          },3000);
+          return response.status(200).json({ message: "Your QR code was accepted adding " + res.Points + " points to your account." })
+
         });
       }
       else {
-        response.send("This is an invaid key")
+        return response.status(200).json({ message: "Your QR code has already been redeemed!" })
+
       }
     } else {
-      response.send("There was no Token with code: " + code)
+      return response.status(200).json({ message: "This QR code is not registered in our system." })
     }
   })
 
@@ -59,4 +62,3 @@ client.messages.create({
      throw err
  });
 }
- 

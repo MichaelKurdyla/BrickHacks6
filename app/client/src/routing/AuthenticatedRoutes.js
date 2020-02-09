@@ -5,6 +5,7 @@ import AuthenticatedContainer from '../components/General/Authenticated/Authenti
 import Home from '../components/General/Authenticated/Home';
 import Scan from '../components/Auth/Scan';
 import Logout from '../components/General/Authenticated/Logout';
+import Returns from '../components/General/Authenticated/Returns';
 /**
  * @private true
  * @route   /home/*
@@ -12,7 +13,6 @@ import Logout from '../components/General/Authenticated/Logout';
  */
 const AuthenticatedRoutes = props => {
   const { user } = props;
-  console.log(user);
   return (
     <Switch>
       <Route
@@ -32,9 +32,45 @@ const AuthenticatedRoutes = props => {
         render={() => (
           <AuthenticatedContainer
             userName={user.name}
-            phone={user.phone}
             points={user.points}
-            component={<Scan />}
+            component={<Scan
+              userName={user.name}
+              phone={user.phone}
+              points={user.points}
+              userID={user._id}
+              />}
+          />
+        )}
+      />
+      <Route
+        exact
+        path="/home/returns"
+        render={() => (
+          <AuthenticatedContainer
+            userName={user.name}
+            points={user.points}
+            component={<Returns
+              userName={user.name}
+              phone={user.phone}
+              points={user.points}
+              userID={user._id}
+              />}
+          />
+        )}
+      />
+      <Route
+        exact
+        path="/home/purchases"
+        render={() => (
+          <AuthenticatedContainer
+            userName={user.name}
+            points={user.points}
+            component={<Scan
+              userName={user.name}
+              phone={user.phone}
+              points={user.points}
+              userID={user._id}
+              />}
           />
         )}
       />
@@ -43,8 +79,8 @@ const AuthenticatedRoutes = props => {
         path="/home/logout"
         render={() => (
           <AuthenticatedContainer
-          userName={user.name}
-          points={user.points}
+            userName={user.name}
+            points={user.points}
             component={<Logout />}
           />
         )}

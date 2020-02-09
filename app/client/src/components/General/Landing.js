@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Nav from './Nav';
 import Merch from '../../assets/bg-home-video.jpg';
 import Green from '../../assets/green-min.jpg';
+import SnapCode from '../../assets/RonaSzn.png';
 import Footer from './Footer';
 export default function Landing() {
   return (
@@ -77,6 +78,27 @@ export default function Landing() {
             </div>
             <div className="col-lg-6 text-center">
               <img className='col-6-img' src={Green} />
+            </div>
+          </div>
+        </div>
+      </section>
+      <section className="img-info">
+        <div className="container">
+          <div className="row">
+            <div className="col-lg-6 text-center">
+              <img className='col-5-img' src={SnapCode} />
+            </div>
+            <div className="col-lg-6 my-auto">
+              <h2>Scan our Snapchat code for a unique Lens</h2>
+              <p>Bring the fun of Corona with you where ever you go with our custom SnapChat lens. </p>
+              <div className="row">
+                <div className="col-sm-6">
+                  <div className="feature">
+                    <h3>Easy to get</h3>
+                    <p>Just scan this code in the Snapchat app to get the lens for 48 hours!</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
