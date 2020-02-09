@@ -48,8 +48,24 @@ exports.create = async (req, res) => {
       email,
       name
     });
-    // putting in a text verification of the account !! 
-    //sms.SignUpText({number: phone, name: name}, {})
+    // putting in a text verification of the account !!
+    const accountSid = 'AC5f2e5759efeae7d1653175746a1262ae';
+    const authToken = '52ca7ac391ae281afcb154e6116b771a';
+    const client = require('twilio')(accountSid, authToken);
+    attach = '+1'
+    realNumber = attach.concat(phone)
+    console.log("We are trying to text: " + realNumber)
+    client.messages.create({
+        body: 'Hey ' + name + '!, super excited to have you on board :)',
+        from: '+18509404806',
+        to: realNumber
+      })
+     .then((message) => {
+         console.log(message.sid)
+     })
+     .catch((err) => {
+         throw err
+     });
 
     const user = await userService.create({
       email,
@@ -60,7 +76,7 @@ exports.create = async (req, res) => {
       updated: Date.now(),
       emailData: { token: emailToken, emailVerified: false }
     });
-   
+
     const token = await authenticationService.generateToken(user._doc, twoDays);
     await mailService.sendEmail({
       to: user._doc.email,
@@ -71,6 +87,7 @@ exports.create = async (req, res) => {
     });
     return res.json({ token, user: user._doc, authenticated: true });
   } catch (e) {
+    console.log(e)
     return res.status(e.meta.statusCode).json({ data: e.data, meta: e.meta });
   }
 };

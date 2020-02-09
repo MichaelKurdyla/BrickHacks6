@@ -23,5 +23,3 @@ exports.SignUpText = (req, res) => {
          throw err
      });
 };
-
-
