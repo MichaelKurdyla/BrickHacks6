@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Nav from './Nav';
 import Merch from '../../assets/bg-home-video.jpg';
 import Green from '../../assets/green-min.jpg';
-import SnapCode from '../../assets/RonaSzn.png';
+import SnapCode from '../../assets/snapcode.svg';
 import Footer from './Footer';
 export default function Landing() {
   return (

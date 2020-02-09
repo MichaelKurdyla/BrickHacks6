@@ -23,8 +23,11 @@ exports.return = (req, res) => {
     if (err) throw err;
     const pid = user.points.purchases.findIndex((purchase) => purchase._id = id);
     user.points.purchases[pid].returned = true;
+    console.log(user.points.purchases[pid]);
     user.points.balance = parseInt(user.points.balance) + parseInt(user.points.purchases[pid].Points);
-    user.save()
+    user.save().then(() => {
+      res.status(200).json({ message: "Your purchase was successful" })
+    })
 
   })
 }

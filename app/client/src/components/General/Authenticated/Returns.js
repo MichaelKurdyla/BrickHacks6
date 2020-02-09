@@ -7,6 +7,9 @@ export default function Returns(props) {
     axios.post('/api/validation/return', {id: id, uid: uid})
     .then((res) => {
       console.log(res);
+
+      //window.location.reload(true);
+
     })
   }
     return(
