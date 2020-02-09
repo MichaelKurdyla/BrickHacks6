@@ -6,6 +6,7 @@ import {
 } from "../types";
 import { setAuthHeader } from "../../utils/setAuthHeader";
 import axios from "axios";
+//import { clearProfile } from "./userActions";
 
 export const getUser = () => async dispatch => {
   dispatch({ type: LOADING_TRUE, payload: true });
@@ -31,7 +32,15 @@ export const getUser = () => async dispatch => {
     dispatch({ type: LOADING_FALSE, payload: false });
   }
 };
-
+export const setLoggedinUser = (dispatch, token, user, Authenticated) => {
+  setAuthHeader(token);
+  localStorage.setItem("User_Authenticator_Token", token);
+  dispatch(setAuthStatus(user, Authenticated));
+};
+export const logoutUser = () => dispatch => {
+  setLoggedinUser(dispatch, "", {}, false);
+//  dispatch(clearProfile());
+};
 export const setAuthStatus = (dispatch, token, user, authenticated) => {
   if (token) {
     setAuthHeader(token);

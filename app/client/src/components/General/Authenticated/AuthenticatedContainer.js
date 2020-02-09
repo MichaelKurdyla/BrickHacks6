@@ -20,6 +20,8 @@ import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
+import HomeIcon from '@material-ui/icons/Home';
+import CameraIcon from '@material-ui/icons/Camera';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ListItem from '@material-ui/core/ListItem';
@@ -145,13 +147,16 @@ export default function AuthenticatedContainer(props) {
           {[{text: "Home", link: "/home/"}, {text: "Scan", link: "/home/scan"}].map((link, index) => (
             <Link to={link.link} key={link.text}>
               <ListItem button>
-                <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+                <ListItemIcon>{index % 2 === 0 ? <HomeIcon /> : <CameraIcon />}</ListItemIcon>
                 <ListItemText primary={link.text} />
               </ListItem>
             </Link>
           ))}
         </List>
+        <div className="dashboard-control">
+          <Link to="/home/logout">Logout</Link>
 
+        </div>
       </Drawer>
       <main
         className={clsx(classes.content, {
