@@ -12,7 +12,7 @@ export default function Home() {
   return (
     <div className="homepage">
       <h1>Corona Rewards</h1>
-      <div className="rewards-grid">
+      <div className="rewards-grid" >
         <div className="custom-card">
           <img src={Green} />
           <div className="content">
@@ -60,7 +60,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        
+
         <div className="custom-card">
           <img src={Sombrero} />
           <div className="content">
