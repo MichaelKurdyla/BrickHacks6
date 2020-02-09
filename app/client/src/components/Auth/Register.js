@@ -16,6 +16,7 @@ class Register extends Component {
     this.state = {
       email: "",
       name: "",
+      phone: "",
       password: "",
       confirm: "",
       loading: false,
@@ -35,7 +36,7 @@ class Register extends Component {
   }
 
   render() {
-    const { email, name, password, confirm, errors, loading } = this.state;
+    const { email, name, phone, password, confirm, errors, loading } = this.state;
     return (
       <div className="page">
         <Nav />
@@ -69,6 +70,17 @@ class Register extends Component {
                     onChange={this.onChange}
                     margin="normal"
                     error={errors ? errors.name : null}
+                    variant="outlined"
+                  />
+                  <TextField
+                    id="phone-field"
+                    label="Phone"
+                    className='form-input'
+                    value={phone}
+                    name="phone"
+                    onChange={this.onChange}
+                    margin="normal"
+                    error={errors ? errors.phone : null}
                     variant="outlined"
                   />
                   <TextField
