@@ -34,7 +34,7 @@ exports.create = async (req, res) => {
     if (!valid) {
       throw formError(errors, "create", true);
     }
-    const { email, name, password } = req.body;
+    const { email, name, phone, password } = req.body;
     const existingUser = await userService.get({ email });
 
     if (existingUser) {
@@ -51,6 +51,7 @@ exports.create = async (req, res) => {
     const user = await userService.create({
       email,
       name,
+      phone: phone,
       password: hash,
       created: Date.now(),
       updated: Date.now(),

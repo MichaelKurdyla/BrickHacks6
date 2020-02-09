@@ -25,9 +25,9 @@ export const login = async cmp => {
 
 export const register = async cmp => {
   cmp.setState({ loading: true });
-  const { email, name, password, confirm } = cmp.state;
+  const { email, name, phone, password, confirm } = cmp.state;
   try {
-    let input = { email, name, password, confirm };
+    let input = { email, name, phone, password, confirm };
     let res = await axios.post("/api/user/create", input);
     cmp.setState({ loading: false });
     setAuthStatus(
