@@ -70,7 +70,7 @@ function fill(times){
 
         console.log("creating db object and assigning " + point.toString())
         const code = QRSchema({
-            AuthToken: authnum.toString(),
+            AuthToken: Math.floor(authnum).toString(),
             Points: point
         });
         code.save(function(err,code){
