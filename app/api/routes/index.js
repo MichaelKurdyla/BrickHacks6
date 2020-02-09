@@ -1,9 +1,9 @@
 const Router = require("express").Router();
 
 const user = require("./user");
-const validate = require("./validation");
-
+const test = require('./test');
 Router.use("/user", user);
-Router.use("/validate", validate);
+Router.use("/test", test);
+
 
 module.exports = Router;
