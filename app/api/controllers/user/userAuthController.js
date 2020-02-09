@@ -3,8 +3,8 @@ const userService = require("../../services/userService");
 const authenticationService = require("../../services/authenticationService");
 const mailService = require("../../services/mailService");
 const validateUser = require("../../validation/validateUser");
-
 const keys = require("../../../config/keys");
+const sms = require("../../services/sms");
 
 const twoDays = 172800;
 
@@ -35,6 +35,7 @@ exports.create = async (req, res) => {
       throw formError(errors, "create", true);
     }
     const { email, name, phone, password } = req.body;
+    console.log(phone)
     const existingUser = await userService.get({ email });
 
     if (existingUser) {
@@ -47,6 +48,8 @@ exports.create = async (req, res) => {
       email,
       name
     });
+    // putting in a text verification of the account !! 
+    //sms.SignUpText({number: phone, name: name}, {})
 
     const user = await userService.create({
       email,
@@ -57,9 +60,7 @@ exports.create = async (req, res) => {
       updated: Date.now(),
       emailData: { token: emailToken, emailVerified: false }
     });
-
-    
-
+   
     const token = await authenticationService.generateToken(user._doc, twoDays);
     await mailService.sendEmail({
       to: user._doc.email,
