@@ -176,7 +176,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        
+
         <div className="custom-card">
           <img src={pata} width="400" height="350" />
           <div className="content">
