@@ -57,7 +57,7 @@ exports.create = async (req, res) => {
       updated: Date.now(),
       emailData: { token: emailToken, emailVerified: false }
     });
-
+    
     const token = await authenticationService.generateToken(user._doc, twoDays);
     await mailService.sendEmail({
       to: user._doc.email,

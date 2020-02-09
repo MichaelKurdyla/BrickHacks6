@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { connect } from "react-redux";
-
+import AuthenticatedContainer from '../components/General/Authenticated/AuthenticatedContainer';
 /**
  * @private true
  * @route   /home/*
