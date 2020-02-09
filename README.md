@@ -1,4 +1,4 @@
-# Brickhacks-
+# Brickhacks 2020
 
 Brickhacks is a 24 hour hackathon hosted by the Rochester Institute of Technology. It is occuring from February 8th to 9th, 2020.
 
