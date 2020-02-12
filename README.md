@@ -19,3 +19,7 @@ We are applying for the following prizes:
 - Best Use of MongoDB Atlas
 - Best Data Visualization
 - Best "Brick" Hack
+
+Winner of the Best Omni Channel Consumer Experience Challenge!
+
+
